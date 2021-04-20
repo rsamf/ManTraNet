@@ -1,3 +1,6 @@
+# Forked Repo of ManTraNet
+The purpose of this repo is to containerize and provide this model as a simple service using Flask.
+
 # **ManTraNet**: Manipulation Tracing Network For Detection And Localization of Image ForgeriesWith Anomalous Features
 <img src="https://www.isi.edu/images/isi-logo.jpg" width="300"/> <img src="http://cvpr2019.thecvf.com/images/CVPRLogo.png" width="300"/> 
 
