@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mantranet-service
+spec:
+  selector:
+    matchLabels:
+      app: mantranet-service
+  template:
+    metadata:
+      labels:
+        app: mantranet-service
+    spec:
+      containers:
+      - name: mantranet-service
+        image: rsamf/mantranet:latest
+        ports:
+        - containerPort: 5000
