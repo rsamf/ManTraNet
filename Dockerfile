@@ -9,6 +9,8 @@ COPY environment.yaml .
 RUN conda env create -f environment.yaml
 ENV FLASK_APP=src/server.py
 
+RUN mkdir uploads
+
 # Expose default flask port
 EXPOSE 5000
 

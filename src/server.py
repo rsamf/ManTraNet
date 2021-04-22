@@ -19,7 +19,7 @@ def classify():
     def is_file_allowed(filename):
         return os.path.splitext(filename)[1].lower() in ALLOWED_EXTENSIONS
     file = request.files.get('file')
-    if file is None or file is '':
+    if file == None or file == '':
         return 'No file given'
     elif not is_file_allowed(file.filename):
         return 'File not allowed. Received {0} but was expecting one of types {1}'.format(file.filename, ALLOWED_EXTENSIONS)
@@ -29,6 +29,6 @@ def classify():
         file.save(save_destination)
         _, mask, ptime = model.classify(save_destination)
         return {
-            "mask": mask,
+            "mask": mask.tolist(),
             "time": ptime
         }
