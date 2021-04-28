@@ -2,6 +2,10 @@ import os, os.path, time
 from flask import Flask, request
 from werkzeug.utils import secure_filename
 from ManTraNet import ManTraNet
+import matplotlib
+import matplotlib.pyplot as plt
+from PIL import Image
+import numpy as np
 
 UPLOAD_FOLDER = '/path/to/the/uploads'
 ALLOWED_EXTENSIONS = {'.png', '.jpg', '.jpeg', '.nitf'}
@@ -28,6 +32,7 @@ def classify():
         save_destination = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(save_destination)
         _, mask, ptime = model.classify(save_destination)
+        mask = (mask*256).astype(dtype='uint8')
         return {
             "mask": mask.tolist(),
             "time": ptime
